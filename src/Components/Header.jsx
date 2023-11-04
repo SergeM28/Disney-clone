@@ -52,7 +52,7 @@ const Header = () => {
                             {menu.map((item, index) => index > 2 && (
                                 <HeaderItem name={item.name} Icon={item.icon} />
                             ))}
-                        </div> : null }
+                        </div> : null}
                     </div>
                 </div>
             </div>
