@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import GlobalApi from '../Service/GlobalApi'
 import MovieCard from './MovieCard';
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5'
+import HorzMovieCard from './HorzMovieCard';
 
 const MovieList = ({ genreId, index_ }) => {
 
@@ -34,8 +35,10 @@ const MovieList = ({ genreId, index_ }) => {
             ${index_ % 3 == 0 ? 'mt-[80px]' : 'mt-[150px]'} `} />
             <div ref={elementRef} className="flex overflow-x-auto gap-8 scrollbar-none
         pt-5 px3 pb-5 scroll-smooth">
-                {movieList.map((item) => (
-                    <MovieCard movie={item} key={item.id}/>
+                {movieList.map((item, index) => (
+                    <>
+                        {index_ % 3 === 0 ? <HorzMovieCard movie={item} /> : <MovieCard movie={item} key={item.id} />}
+                    </>
                 ))}
             </div>
             <IoChevronForwardOutline onClick={() => slideRight(elementRef.current)}
