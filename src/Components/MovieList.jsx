@@ -36,9 +36,9 @@ const MovieList = ({ genreId, index_ }) => {
             <div ref={elementRef} className="flex overflow-x-auto gap-8 scrollbar-none
         pt-5 px3 pb-5 scroll-smooth">
                 {movieList.map((item, index) => (
-                    <>
-                        {index_ % 3 === 0 ? <HorzMovieCard movie={item} /> : <MovieCard movie={item} key={item.id} />}
-                    </>
+                    <div key={item.id}>
+                        {index_ % 3 === 0 ? <HorzMovieCard movie={item} /> : <MovieCard movie={item} />}
+                    </div>
                 ))}
             </div>
             <IoChevronForwardOutline onClick={() => slideRight(elementRef.current)}
